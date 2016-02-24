@@ -9,28 +9,21 @@ import javax.swing.JPanel;
 public class ControlPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    public ControlPanel()
+    JButton b1;
+    JButton b2;
+    Jbutton b3;
+    JPanel getColorPanel;
+    
+    public ControlPanel(DrawingPanel panel)
     {
-        DrawingPanel draw
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
+        this.b1 = new JButton("Pick Color");
+        getColorPanel = new JPanel();
+        this.b2 = new JButton("Add Circle");
+        this.b3 = new JButton("Add Square");
+        this.add(b1);
+        this.add(getColorPanel.setBackground(panel.getColor));
+        this.add(b2);
+        this.add(b3);
     }
 
 }
