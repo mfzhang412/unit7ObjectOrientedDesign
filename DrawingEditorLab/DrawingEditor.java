@@ -11,8 +11,8 @@ public class DrawingEditor extends JFrame
     final static private int FRAME_WIDTH = 300;
     final static private int FRAME_HEIGHT = 400;
     
-    DrawingPanel canvas;
-    ControlPanel controls;
+    private DrawingPanel canvas;
+    private ControlPanel controls;
 
     /**
      * Drawing Editor
