@@ -1,8 +1,11 @@
 import javax.swing.JPanel;
 import java.util.ArrayList;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle;
+import java.awt.Rectangle;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
@@ -15,9 +18,10 @@ import java.awt.event.MouseEvent;
  */
 public class DrawingPanel extends JPanel
 {
-    private ArrayList<Shapes> shapeList;
+    private ArrayList<Shape> shapeList;
     private Shape activeShape;
-    private MouseListener listener123;
+    private ClickListener clickedListener;
+    private MotionListener draggedListener;
     
     /**
      * Default constructor for objects of class DrawingPanel
@@ -25,9 +29,10 @@ public class DrawingPanel extends JPanel
     public DrawingPanel()
     {
         this.setBackground(Color.WHITE);
-        activeShape
-        shapeList = newList<Shape>();
-        listener123 = new MouseListener123();
+        //activeShape
+        shapeList = new ArrayList<Shape>();
+        clickedListener = new ClickListener();
+        draggedListener = new MotionListener();
     }
 
     public Color getColor()
@@ -82,16 +87,10 @@ public class DrawingPanel extends JPanel
     
     public class ClickListener implements MouseListener
     {
-        public ClickListener(MouseEvent event)
-        {
-            
-        }
-    }
-    public class MotionListener implements MouseMotionListener
-    {
         
     }
-    public class TypingListener implements KeyListener
+    
+    public class MotionListener implements MouseMotionListener
     {
         
     }
