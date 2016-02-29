@@ -1,40 +1,60 @@
-
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Point2D;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 /**
- * Write a description of class Shape here.
+ * Write a description of abstract class Shape here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 abstract public class Shape
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    /**
-     * Default constructor for objects of class Shape
-     */
-    public Shape()
+    Point2D.Double center;
+    double radius;
+    Color color;
+    public Shape(Point2D.Double center, double radius, Color color)
     {
-        // initialise instance variables
-        x = 0;
+        this.center = center;
+        this.radius = radius;
+        this.color = color;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
+    
+    public Point2D.Double getCenter()
     {
-        // put your code here
-        return x+y;
+        
     }
-
+    
+    public double getRadius()
+    {
+        
+    }
+    
+    public void move(double x, double y)
+    {
+        
+    }
+    
+    public void setRadius(double r)
+    {
+        
+    }
+    
+    public boolean isInside(Point2D.Double point)
+    {
+        
+    }
+    
+    public boolean isOnBorder(Point2D.Double point)
+    {
+        
+    }
+    
+    public void draw(Graphics2D g2, boolean filled)
+    {
+        
+    }
 }

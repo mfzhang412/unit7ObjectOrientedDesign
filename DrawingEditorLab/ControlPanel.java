@@ -1,4 +1,6 @@
 import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -13,7 +15,7 @@ public class ControlPanel extends JPanel
     /** description of instance variable x (add comment for each instance variable) */
     private JButton b1;
     private JButton b2;
-    private Jbutton b3;
+    private JButton b3;
     private DrawingPanel canvas;
     private JPanel getColorPanel;
     
@@ -28,7 +30,8 @@ public class ControlPanel extends JPanel
         getColorPanel = new JPanel();
         
         this.add(b1);
-        this.add(getColorPanel.setBackground(canvas.getColor));
+        this.add(getColorPanel);
+        getColorPanel.setBackground(canvas.getColor());
         this.add(b2);
         this.add(b3);
         
@@ -41,7 +44,7 @@ public class ControlPanel extends JPanel
         b3.addActionListener(b3Listener);
     }
     
-    public class ColorListener implements ColorListener
+    public class ColorListener implements ActionListener
     {
         public void actionPerformed(ActionEvent event)
         {
@@ -53,13 +56,19 @@ public class ControlPanel extends JPanel
     
     public class CircleListener implements ActionListener
     {
-        canvas.addCircle();
-        canvas.requestFocusInWindow();
+        public void actionPerformed(ActionEvent event)
+        {
+            canvas.addCircle();
+            canvas.requestFocusInWindow();
+        }
     }
     
-    public class SquareListener implements SquareListener
+    public class SquareListener implements ActionListener
     {
-        canvas.addSquare();
-        canvas.requestFocusInWindow();
+        public void actionPerformed(ActionEvent event)
+        {
+            canvas.addSquare();
+            canvas.requestFocusInWindow();
+        }
     }
 }

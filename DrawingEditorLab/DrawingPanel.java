@@ -4,8 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Ellipse2D;
-import java.awt.Rectangle;
+import javax.swing.JColorChooser;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
@@ -22,6 +21,7 @@ public class DrawingPanel extends JPanel
     private Shape activeShape;
     private ClickListener clickedListener;
     private MotionListener draggedListener;
+    private Color currentColor;
     
     /**
      * Default constructor for objects of class DrawingPanel
@@ -37,11 +37,7 @@ public class DrawingPanel extends JPanel
 
     public Color getColor()
     {
-        int red = activeShape.getRed();
-        int green = activeShape.getGreen();
-        int blue = activeShape.getBlue();
-        
-        return Color(red, green, blue);
+        return currentColor;
     }
     
     public Dimension getPreferredSize()
@@ -51,7 +47,8 @@ public class DrawingPanel extends JPanel
     
     public void pickColor()
     {
-        
+        JColorChooser chooser = new JColorChooser();
+        currentColor = chooser.getColor();
     }
     
     public void addCircle()
@@ -83,6 +80,7 @@ public class DrawingPanel extends JPanel
                 g.draw(activeShape);
             }
         }
+        repaint();
     }
     
     public class ClickListener implements MouseListener

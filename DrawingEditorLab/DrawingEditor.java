@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import java.awt.BorderLayout;
 
 /**
  * Write a description of class DrawingEditor here.
@@ -25,9 +26,9 @@ public class DrawingEditor extends JFrame
         this.add(controls, BorderLayout.SOUTH);
         this.add(canvas, BorderLayout.CENTER);
         
-        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
     }
 
     public static void main (String[] args)
