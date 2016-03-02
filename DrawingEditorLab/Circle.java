@@ -1,4 +1,5 @@
 import java.awt.geom.Point2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -36,8 +37,8 @@ public class Circle extends Shape
         double x = point.getX();
         double y = point.getY();
         
-        //if (((x = (this.getCenter()).getX() - this.getRadius()) || (x < (this.getCenter()).getX() + this.getRadius())) &&
-            ((y > (this.getCenter()).getY() - this.getRadius()) && (y < (this.getCenter()).getY() + this.getRadius())))
+        if (((x == (this.getCenter()).getX() - this.getRadius()) || (x == (this.getCenter()).getX() + this.getRadius())) &&
+            ((y == (this.getCenter()).getY() - this.getRadius()) && (y == (this.getCenter()).getY() + this.getRadius())))
             {
                 tf = true;
             }
@@ -47,6 +48,10 @@ public class Circle extends Shape
     
     public void draw(Graphics2D g2, boolean filled)
     {
-        
+        Ellipse2D.Double circle = new Ellipse2D.Double((this.getCenter()).getX(), (this.getCenter()).getY(), radius, radius);
+        g2.setColor(color);
+        if (filled)
+            g2.fill(circle);
+        g2.draw(circle);
     }
 }

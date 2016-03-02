@@ -59,7 +59,6 @@ public class ControlPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             canvas.addCircle();
-            canvas.requestFocusInWindow();
         }
     }
     
@@ -68,7 +67,6 @@ public class ControlPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             canvas.addSquare();
-            canvas.requestFocusInWindow();
         }
     }
 }
