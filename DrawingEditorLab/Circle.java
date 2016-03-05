@@ -5,13 +5,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
- * Write a description of class Circle here.
+ * Class that extends Shape
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Michael Zhang
+ * @version 3/4/2016
  */
 public class Circle extends Shape
-{    
+{
+    /**
+     * Circle constructor
+     */
     public Circle(Point2D.Double c, double r, Color cC)
     {
         super(c, r, cC);
@@ -31,25 +34,25 @@ public class Circle extends Shape
         return tf;
     }
     
-    public boolean isOnBorder(Point2D.Double point)
-    {
-        boolean tf = false;
-        double x = point.getX();
-        double y = point.getY();
-        
-        if (((x == (this.getCenter()).getX() - this.getRadius()) || (x == (this.getCenter()).getX() + this.getRadius())) &&
-            ((y == (this.getCenter()).getY() - this.getRadius()) && (y == (this.getCenter()).getY() + this.getRadius())))
-            {
-                tf = true;
-            }
-        
-        return tf;
-    }
+    //     public boolean isOnBorder(Point2D.Double point)
+    //     {
+    //         boolean tf = false;
+    //         double x = point.getX();
+    //         double y = point.getY();
+    //         
+    //         if (((x == (this.getCenter()).getX() - this.getRadius()) || (x == (this.getCenter()).getX() + this.getRadius())) &&
+    //             ((y == (this.getCenter()).getY() - this.getRadius()) && (y == (this.getCenter()).getY() + this.getRadius())))
+    //             {
+    //                 tf = true;
+    //             }
+    //         
+    //         return tf;
+    //     }
     
     public void draw(Graphics2D g2, boolean filled)
     {
-        Ellipse2D.Double circle = new Ellipse2D.Double((this.getCenter()).getX(), (this.getCenter()).getY(), radius, radius);
-        g2.setColor(color);
+        Ellipse2D.Double circle = new Ellipse2D.Double((this.getCenter()).getX() - this.getRadius(), (this.getCenter()).getY() - this.getRadius(), this.getRadius() * 2, this.getRadius() * 2);
+        g2.setColor(this.getColor());
         if (filled)
             g2.fill(circle);
         g2.draw(circle);

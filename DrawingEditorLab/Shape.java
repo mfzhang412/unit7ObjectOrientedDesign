@@ -4,17 +4,21 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
- * Write a description of abstract class Shape here.
+ * Abstract class Shape that will have subclasses Square and Circle
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Michael Zhang
+ * @version 3/4/2016
  */
 abstract public class Shape
 {
-    Point2D.Double center;
-    double radius;
-    Color color;
+    /** Defines the center, radius, and color of the shape */
+    public Point2D.Double center;
+    public double radius;
+    public Color color;
     
+    /**
+     * Shape constructor
+     */
     public Shape(Point2D.Double c, double r, Color cC)
     {
         center = c;
@@ -32,6 +36,11 @@ abstract public class Shape
         return radius;
     }
     
+    public Color getColor()
+    {
+        return color;
+    }
+    
     public void move(double x, double y)
     {
         center.setLocation(x, y);
@@ -43,8 +52,6 @@ abstract public class Shape
     }
     
     abstract public boolean isInside(Point2D.Double point);
-    
-    abstract public boolean isOnBorder(Point2D.Double point);
-    
+    //abstract public boolean isOnBorder(Point2D.Double point);
     abstract public void draw(Graphics2D g2, boolean filled);
 }

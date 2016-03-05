@@ -5,20 +5,26 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * Write a description of class ControlPanel here.
+ * Class that extends JPanel
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Michael Zhang
+ * @version 3/4/2016
  */
 public class ControlPanel extends JPanel
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** Defines the buttons that will be clicked */
     private JButton b1;
     private JButton b2;
     private JButton b3;
+    
+    /** Defines the canvas, the Jpanel that shows the currentColor, and currentColor */
     private DrawingPanel canvas;
     private JPanel getColorPanel;
+    private Color currentColor;
     
+    /**
+     * Control Panel
+     */
     public ControlPanel(DrawingPanel panel)
     {
         canvas = panel;
@@ -28,10 +34,11 @@ public class ControlPanel extends JPanel
         this.b3 = new JButton("Add Square");
         
         getColorPanel = new JPanel();
+        currentColor = canvas.getColor();
         
         this.add(b1);
         this.add(getColorPanel);
-        getColorPanel.setBackground(canvas.getColor());
+        getColorPanel.setBackground(currentColor);
         this.add(b2);
         this.add(b3);
         
@@ -49,8 +56,9 @@ public class ControlPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             canvas.pickColor();
-            Color currentColor = canvas.getColor();
+            currentColor = canvas.getColor();
             getColorPanel.setBackground(currentColor);
+            canvas.repaint();
         }
     }
     
@@ -59,6 +67,7 @@ public class ControlPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             canvas.addCircle();
+            canvas.repaint();
         }
     }
     
@@ -67,6 +76,7 @@ public class ControlPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             canvas.addSquare();
+            canvas.repaint();
         }
     }
 }
